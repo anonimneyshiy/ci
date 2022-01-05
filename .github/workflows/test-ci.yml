@@ -13,3 +13,12 @@ jobs:
     steps:
     - name: ci for test
       run: echo 'hello world!'
+      
+    - name: Change file
+      run: ls -la
+      
+    - name: Git clone my repo
+      run: actions/checkout@v1
+      
+    - name: Change file
+      run: ls -la
