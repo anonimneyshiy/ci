@@ -20,6 +20,11 @@ jobs:
     - name: Git clone my repo
       uses: actions/checkout@main
       
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - run: pip install pytest
+      
     - name: Change file
       run: ls -la
       
