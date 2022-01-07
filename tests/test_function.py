@@ -7,5 +7,3 @@ def test_func():
     assert 1 == func(-1)
     assert 4 == func(2)
     assert 9 == func(-3)
-
-
