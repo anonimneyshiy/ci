@@ -2,8 +2,8 @@ version: '3.5'
 
 services:
   mongo:
-    container_name: my_little_mongo
-    image: my_little_mongo_image
+    container_name: my_little_mongo_image
+    image: mongo
     restart: unless-stopped
     env_file:
       - .env.example
