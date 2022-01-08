@@ -15,13 +15,9 @@ class MongoConnector:
         )
         self.db = self.client[config.MONGO_DB]
 
-    # Load
-    def load_model(self, unit_id, subsystem_id):
-        model = self.db.models_info.find_one({"unit_id": unit_id,
-                                                     "subsystem_id": subsystem_id})
+    def load_model(self, user_id):
+        model = self.db.models_info.find_one({'user_id': user_id})
         return model
 
-    def update_model(self, unit_id, subsystem_id, new_config, key=None, sub_key=None):
-        self.db.models_info.update_one({"unit_id": unit_id,
-                                        "subsystem_id": subsystem_id},
-                                       {'$set': new_config}, upsert=True)
+    def update_model(self, user_id, new_config):
+        self.db.models_info.update_one({"user_id": user_id}, {'$set': new_config}, upsert=True)
