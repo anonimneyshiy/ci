@@ -1,11 +1,14 @@
 version: '3.5'
 
 services:
-  mongo:
-    container_name: my_little_mongo_image
-    image: mongo
-    restart: unless-stopped
-    env_file:
-      - .env.example
+  app:
+    build: .
+    container_name: fastapi-app
+    network_mode: host
     ports:
-      - "${MONGO_PORT}:${MONGO_PORT}"
+      - "8000:000"
+    command: bash -c "uvicorn app.main:app"
+    env_file:
+      - .env
+    volumes:
+      - ./fastapi_app.db:/app/fastapi_app.db:delegated
