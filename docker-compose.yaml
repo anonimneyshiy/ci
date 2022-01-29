@@ -10,5 +10,5 @@ services:
     command: bash -c "uvicorn app.main:app"
     env_file:
       - .env
-    volumes:
-      - ./fastapi_app.db:/app/fastapi_app.db:delegated
+#    volumes:
+#      - ./fastapi_app.db:/app/fastapi_app.db:delegated
