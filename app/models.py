@@ -5,7 +5,7 @@ from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
 from sqlalchemy.orm import Session
 from sqlalchemy.ext.declarative import declarative_base
 
-from app.config import DATABASE_URL
+from app.config import PG_URL
 
 
 Base = declarative_base()
@@ -18,7 +18,7 @@ class StreamStatus(Enum):
 
 
 def connect_db():
-    engine = create_engine(DATABASE_URL, connect_args={})
+    engine = create_engine(PG_URL)
     session = Session(bind=engine.connect())
     return session
 

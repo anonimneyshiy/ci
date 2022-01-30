@@ -1,11 +1,11 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
-from app.config import DATABASE_URL
+from app.config import PG_URL
 
 
 def main():
-    engine = create_engine(DATABASE_URL)
+    engine = create_engine(PG_URL)
     session = Session(bind=engine.connect())
 
     session.execute("""create table users (
